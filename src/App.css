@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+}
+
+.card {
+  width: 60px;
+  height: 60px;
+  border: 1px solid rebeccapurple;
+  background-color: #fff;
+}
+
+.cards-list {
+  width: 60px;
+  height: 600px;
+  float: left;
+  margin: 0 20px;
+}
+
+.cards-stack {
+  clear: both;
+  width: 60px;
+  position: absolute;
+  top: 600px;
+  right: 30px;
+  border: 1px solid #000;
+}
+
+.cards-stack .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.selected {
+  border: red 2px solid;
+}
