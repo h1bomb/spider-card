@@ -1,11 +1,11 @@
-import React from "react";
-import Card from "./Card";
+import React from 'react';
+import Card from './Card';
 
 const List = ({ cards, move, index, curMove }) => {
   const selectedKey = curMove ? curMove.key : 0;
   return (
     <div
-      className="cards-list"
+      className='cards-list'
       onClick={() => {
         move({ index });
       }}
@@ -18,7 +18,6 @@ const List = ({ cards, move, index, curMove }) => {
           key={card.key}
           move={move}
           num={card.num}
-          isFace={card.isFace}
         />
       ))}
     </div>
