@@ -78,6 +78,7 @@ export const genCardList = () => {
     };
 }
 
+// Move to the other list
 export const move = (card, state) => {
     const {
         num,
@@ -108,7 +109,8 @@ export const move = (card, state) => {
     const bIndex = getCurIndex(lists.get(move.index), move.key);
     const moveArr = lists.get(move.index).slice(bIndex);
     let changedLists = lists;
-    if (isOrder(moveArr) &&
+    if (index !== move.index&&
+        isOrder(moveArr) &&
         (lists.get(index).size === 0 || num - 1 === moveArr.get(0).num)) {
         changedLists = lists.set(move.index, lists.get(move.index).splice(bIndex, moveArr.size));
         changedLists = changedLists.set(index, lists.get(index).concat(moveArr));

@@ -15,17 +15,17 @@ class App extends Component {
     const { lists, stack, move, moveCards, addCards } = this.props;
     return (
       <div className="App">
-        {lists.map((list, key) => (
-          <List
-            key={key}
-            index={key}
-            cards={list}
-            curMove={move}
-            move={moveCards}
-          />
-        ))}
-        <Stack cards={stack} add={addCards} />
-        <UndoRedo />
+          {lists.map((list, key) => (
+            <List
+              key={key}
+              index={key}
+              cards={list}
+              curMove={move}
+              move={moveCards}
+            />
+          ))}
+          <Stack cards={stack} add={addCards} />
+          <UndoRedo />
       </div>
     );
   }
@@ -34,7 +34,7 @@ class App extends Component {
 export default connect(
   state => {
     console.log(state);
-    return (state.present);
+    return state.present;
   },
   dispatch => ({
     moveCards: ({ num, index, cardKey }) => {
