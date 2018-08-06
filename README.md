@@ -9,3 +9,6 @@
 * Add undo and redo 
 * Add drag and drop 
 * Change to Better UI [todo]
+* Animation [todo]
+* Four type card [todo]
+* Flip card [todo]

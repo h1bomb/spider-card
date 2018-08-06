@@ -1,7 +1,8 @@
 import { DragSource } from 'react-dnd';
 import Card from '../components/Card';
+
 const Types = {
-  CARD: "card"
+  CARD: 'card',
 };
 
 const cardSource = {
@@ -13,7 +14,7 @@ const cardSource = {
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 }
 

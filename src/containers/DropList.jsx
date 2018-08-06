@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { DropTarget } from 'react-dnd';
 
 const Types = {
@@ -21,28 +21,25 @@ const spec = {
   },
 
   drop(props, monitor) {
-    const {cards,index,justMove} = props;
+    const { cards, index, justMove } = props;
     const item = monitor.getItem();
     const lastCard = cards.last();
     const param = {
-        move:{
-            num:item.num,
-            index: item.index,
-            key: item.cardKey,
-        },
-        index,
-        cardKey: cards.size>0?lastCard.key:0,
-        num: cards.size>0?lastCard.num:0,
-    }
+      move: {
+        num: item.num,
+        index: item.index,
+        key: item.cardKey,
+      },
+      index,
+      cardKey: cards.size > 0 ? lastCard.key : 0,
+      num: cards.size > 0 ? lastCard.num : 0,
+    };
     justMove(param);
   },
 };
 
-const Box = ({ isOver, canDrop, connectDropTarget }) => {
-    return connectDropTarget(
-      <div style={{ width: 60, height: 100, marginTop: -15 }}>
-      </div>,
-    );
-  };
+const Box = ({ connectDropTarget }) => connectDropTarget(
+  <div style={{ width: 60, height: 100, marginTop: -15 }} />,
+);
 
 export default DropTarget(Types.CARD, spec, collect)(Box);
