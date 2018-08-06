@@ -1,12 +1,15 @@
-.App {
+body {
   text-align: center;
+  background-color: #088131;
 }
 
 .card {
   width: 60px;
   height: 60px;
-  border: 1px solid rebeccapurple;
+  border: 3px solid #000;
   background-color: #fff;
+  margin-top: -30px;
+  border-radius: 6px;
 }
 
 .cards-list {
@@ -14,6 +17,7 @@
   height: 600px;
   float: left;
   margin: 0 20px;
+  padding-top: 30px; 
 }
 
 .cards-stack {

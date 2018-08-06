@@ -10,6 +10,9 @@ const Card = ({
   isDragging,
   connectDragSource,
 }) => {
+  const faceCode = {
+    13: 'K', 12: 'Q', 11: 'J', 1: 'A',
+  };
   const connect = connectDragSource || (com => com);
   return connect(
     <div style={{ opacity: isDragging ? 0.1 : 1 }}>
@@ -21,7 +24,10 @@ const Card = ({
         }}
         className={selected ? 'card selected' : 'card'}
       >
-        {num}
+        {faceCode[num] ? faceCode[num] : num}
+        <span>
+        &spades;
+        </span>
       </div>
       {children}
     </div>,
