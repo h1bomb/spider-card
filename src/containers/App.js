@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../App.css";
-import List from "../components/List";
+import List from '../components/List';
 import Stack from "../components/Stack";
 import UndoRedo from "../components/UndoRedo";
-import { addCards, moveCards, genCardList } from "../actions";
+import { addCards, moveCards, genCardList, justMove } from "../actions";
 
 class App extends Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    const { lists, stack, move, moveCards, addCards } = this.props;
+    const { lists, stack, move, moveCards, addCards, justMove } = this.props;
     return (
       <div className="App">
           {lists.map((list, key) => (
@@ -22,6 +22,7 @@ class App extends Component {
               cards={list}
               curMove={move}
               move={moveCards}
+              justMove={justMove}
             />
           ))}
           <Stack cards={stack} add={addCards} />
@@ -45,6 +46,9 @@ export default connect(
     },
     addCards: () => {
       dispatch(addCards());
-    }
+    },
+    justMove:({ num, index, cardKey, move }) => {
+      dispatch(justMove({index, num,cardKey, move}));
+    },
   })
 )(App);

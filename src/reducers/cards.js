@@ -126,6 +126,11 @@ export const move = (card, state) => {
     return newState;
 };
 
+export const justMove = (card,state) => {
+    state = {...state,move: card.move};
+    return move(card,state);
+};
+
 // add cards to every list
 export const add = (state) => {
     const {

@@ -6,17 +6,9 @@ const Types = {
 
 const cardSource = {
   beginDrag(props) {
-    console.log('draging card',props);
     return props;
   },
-
-  endDrag(props, monitor) {
-    if (!monitor.didDrop()) {
-      return;
-    }
-    const item = monitor.getItem();
-    const dropResult = monitor.getDropResult();
-    console.log(item, dropResult);
+  endDrag(props, monitor, component) {
   }
 };
 

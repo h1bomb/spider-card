@@ -1,6 +1,7 @@
 import React from "react";
 import DragCard from "../containers/DragCard";
-const List = ({ cards, move, index, curMove }) => {
+import DropList from '../containers/DropList';
+const List = ({ cards, move, index, curMove,justMove }) => {
   const selectedKey = curMove ? curMove.key : 0;
 
   const TreeCard = ({ card }) => {
@@ -43,6 +44,7 @@ const List = ({ cards, move, index, curMove }) => {
       }}
     >
       {treeCardsElement}
+      <DropList index={index} cards={cards} justMove={justMove}/>
     </div>
   );
 };
