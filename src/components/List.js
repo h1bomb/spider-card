@@ -33,7 +33,6 @@ const List = ({ cards, move, index, curMove,justMove }) => {
     treeCardsElement = <TreeCard card={treeCards[0]} />;
   }
  
-  // console.log(`${index} treecard size: ${cards.size}`,JSON.stringify(treeCards[0]))
   return (
     <div
       className="cards-list"

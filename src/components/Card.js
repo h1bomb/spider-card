@@ -10,7 +10,6 @@ const Card = ({
   isDragging,
   connectDragSource
 }) => {
-  console.log('isDragging:',isDragging);
   if(!connectDragSource) {
     connectDragSource = function(com) {
       return com;

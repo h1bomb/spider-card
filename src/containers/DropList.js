@@ -35,7 +35,6 @@ const spec = {
         num: cards.size>0?lastCard.num:0,
     }
     justMove(param);
-    console.log(props);
   },
 };
 
