@@ -8,8 +8,6 @@ const cardSource = {
   beginDrag(props) {
     return props;
   },
-  endDrag(props, monitor, component) {
-  }
 };
 
 function collect(connect, monitor) {

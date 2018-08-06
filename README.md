@@ -7,5 +7,5 @@
 * Selected Card show other style
 * Use redux rebuild this game
 * Add undo and redo 
-* Add drag and drop [todo]
+* Add drag and drop 
 * Change to Better UI [todo]

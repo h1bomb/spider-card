@@ -7,10 +7,7 @@ const Types = {
 
 function collect(connect, monitor) {
   return {
-    // Call this function inside render()
-    // to let React DnD handle the drag events:
     connectDropTarget: connect.dropTarget(),
-    // You can ask the monitor about the current drag state:
     isOver: monitor.isOver(),
     isOverCurrent: monitor.isOver({ shallow: true }),
     canDrop: monitor.canDrop(),
@@ -43,14 +40,6 @@ const spec = {
 };
 
 const Box = ({ isOver, canDrop, connectDropTarget }) => {
-    // let color = '#ccc';
-    // if (isOver && canDrop) {
-    //   color = 'green';
-    // } else if (!isOver && canDrop) {
-    //   color = 'yellow';
-    // } else if (isOver && !canDrop) {
-    //   color = 'red';
-    // }
     return connectDropTarget(
       <div style={{ width: 60, height: 100, marginTop: -15 }}>
       </div>,
