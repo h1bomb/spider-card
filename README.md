@@ -8,7 +8,8 @@
 * Use redux rebuild this game
 * Add undo and redo 
 * Add drag and drop 
-* Change to Better UI [todo]
+* Change to Better UI
+* use immer [todo]
 * Animation [todo]
 * Four type card [todo]
 * Flip card [todo]

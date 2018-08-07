@@ -1,5 +1,10 @@
 import React from 'react';
 
+// card show code map
+const faceCode = {
+  13: 'K', 12: 'Q', 11: 'J', 1: 'A',
+};
+
 const Card = ({
   num,
   index,
@@ -10,9 +15,6 @@ const Card = ({
   isDragging,
   connectDragSource,
 }) => {
-  const faceCode = {
-    13: 'K', 12: 'Q', 11: 'J', 1: 'A',
-  };
   const connect = connectDragSource || (com => com);
   return connect(
     <div style={{ opacity: isDragging ? 0.1 : 1 }}>
@@ -24,10 +26,10 @@ const Card = ({
         }}
         className={selected ? 'card selected' : 'card'}
       >
-        {faceCode[num] ? faceCode[num] : num}
         <span>
         &spades;
         </span>
+        {faceCode[num] ? faceCode[num] : num}
       </div>
       {children}
     </div>,

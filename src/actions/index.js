@@ -20,6 +20,7 @@ export const moveCards = ({
   cardKey,
 });
 
+// drag and drop to move cards
 export const justMove = ({
   num,
   index,
