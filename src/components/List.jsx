@@ -1,4 +1,5 @@
 import React from 'react';
+import produce from 'immer';
 import DragCard from '../containers/DragCard';
 import DropList from '../containers/DropList';
 
@@ -25,15 +26,17 @@ const List = ({
     );
   };
 
-  const treeCards = JSON.parse(JSON.stringify(cards));
+  let treeCards;
   let treeCardsElement = null;
 
-  if (treeCards.length > 0) {
-    let prevCard = null;
-    treeCards.reduce((prev, card) => {
-      prevCard = prev;
-      prevCard.children = card;
-      return card;
+  if (cards.length > 0) {
+    treeCards = produce(cards, (draft) => {
+      let prevCard = null;
+      draft.reduce((prev, card) => {
+        prevCard = prev;
+        prevCard.children = card;
+        return card;
+      });
     });
     treeCardsElement = <TreeCard card={treeCards[0]} />;
   }
