@@ -25,10 +25,10 @@ const List = ({
     );
   };
 
-  const treeCards = JSON.parse(JSON.stringify(cards.toArray()));
+  const treeCards = JSON.parse(JSON.stringify(cards));
   let treeCardsElement = null;
 
-  if (cards.size > 0) {
+  if (treeCards.length > 0) {
     let prevCard = null;
     treeCards.reduce((prev, card) => {
       prevCard = prev;

@@ -1,4 +1,5 @@
 import undoable from 'redux-undo';
+import produce from 'immer';
 
 import {
   GEN_CARD_LIST,
@@ -13,29 +14,31 @@ import {
   add,
 } from './cards';
 
-const playCards = (state = {
-  lists: [],
-  stack: [],
-  move: null,
-}, action) => {
-  switch (action.type) {
-    case GEN_CARD_LIST:
-      return genCardList();
-    case MOVE_CARDS:
-      return {
-        ...state,
-        ...moveCards(action, state),
-      };
-    case ADD_CARDS:
-      return add(state);
-    case JUST_MOVE:
-      return {
-        ...state,
-        ...justMove(action, state),
-      };
-    default:
-      return state;
-  }
-};
+const cards = produce(
+  (draft, action) => {
+    switch (action.type) {
+      case GEN_CARD_LIST:
+        genCardList(draft);
+        return draft;
+      case MOVE_CARDS:
+        moveCards(action, draft);
+        return draft;
+      case ADD_CARDS:
+        add(draft);
+        return draft;
+      case JUST_MOVE:
+        justMove(action, draft);
+        return draft;
+      default:
+        return draft;
+    }
+  },
+  {
+    lists: [],
+    stack: [],
+    move: null,
+  },
+);
 
-export default undoable(playCards);
+
+export default undoable(cards);

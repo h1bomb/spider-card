@@ -9,7 +9,7 @@
 * Add undo and redo 
 * Add drag and drop 
 * Change to Better UI
-* use immer [todo]
+* use immer
 * Animation [todo]
 * Four type card [todo]
 * Flip card [todo]

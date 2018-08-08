@@ -8,8 +8,14 @@ import reducer from './reducers';
 import './index.css';
 import App from './containers/App';
 import registerServiceWorker from './registerServiceWorker';
+let reduxDevtools;
 
-const store = createStore(reducer);
+if(process.env.NODE_ENV !== 'production') {
+  reduxDevtools = window.__REDUX_DEVTOOLS_EXTENSION__ 
+  && window.__REDUX_DEVTOOLS_EXTENSION__();
+}
+
+const store = createStore(reducer,reduxDevtools);
 
 ReactDOM.render(
   <DragDropContextProvider backend={HTML5Backend}>

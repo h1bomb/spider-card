@@ -13,7 +13,7 @@ body {
 }
 
 .cards-list {
-  width: 60px;
+  width: 65px;
   height: 600px;
   float: left;
   margin: 0 20px;
@@ -26,7 +26,6 @@ body {
   position: absolute;
   top: 600px;
   right: 30px;
-  border: 1px solid #000;
 }
 
 .cards-stack .card {
@@ -36,5 +35,5 @@ body {
 }
 
 .selected {
-  border: red 2px solid;
+  border: red 3px solid;
 }

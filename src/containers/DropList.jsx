@@ -23,7 +23,7 @@ const spec = {
   drop(props, monitor) {
     const { cards, index, justMove } = props;
     const item = monitor.getItem();
-    const lastCard = cards.last();
+    const lastCard = cards[cards.length - 1];
     const param = {
       move: {
         num: item.num,
@@ -31,15 +31,18 @@ const spec = {
         key: item.cardKey,
       },
       index,
-      cardKey: cards.size > 0 ? lastCard.key : 0,
-      num: cards.size > 0 ? lastCard.num : 0,
+      cardKey: cards.length > 0 ? lastCard.key : 0,
+      num: cards.length > 0 ? lastCard.num : 0,
     };
     justMove(param);
   },
 };
 
 const Box = ({ connectDropTarget }) => connectDropTarget(
-  <div style={{ width: 60, height: 100, marginTop: -15 }} />,
+  <div style={{
+    width: 70, height: 100, position: 'relative', bottom: 40, zIndex: 0,
+  }}
+  />,
 );
 
 export default DropTarget(Types.CARD, spec, collect)(Box);
