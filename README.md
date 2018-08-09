@@ -10,6 +10,7 @@
 * Add drag and drop 
 * Change to Better UI
 * use immer
+* Use Now deploy
 * Animation [todo]
 * Four type card [todo]
 * Flip card [todo]
