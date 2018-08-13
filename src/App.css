@@ -3,6 +3,12 @@ body {
   background-color: #088131;
 }
 
+.App {
+  width: 950px;
+  margin: 0 auto;
+  position: relative;
+}
+
 .card {
   width: 60px;
   height: 60px;
@@ -16,7 +22,7 @@ body {
   width: 65px;
   height: 600px;
   float: left;
-  margin: 0 20px;
+  margin: 0 10px;
   padding-top: 30px; 
 }
 

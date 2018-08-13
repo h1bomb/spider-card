@@ -41,7 +41,7 @@ const spec = {
 
 const Box = ({ connectDropTarget, isOverCurrent }) => connectDropTarget(
   <div style={{
-    width: 100, height: 1500, position: 'relative', bottom: 520, left: -20, zIndex: isOverCurrent ? 0 : -1,
+    width: 80, height: 1500, position: 'relative', bottom: 520, left: -10, zIndex: isOverCurrent ? 0 : -1,
   }}
   />,
 );
