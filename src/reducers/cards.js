@@ -129,14 +129,32 @@ export const add = (state) => {
   const {
     stack,
     lists,
+    activeItems,
   } = state;
-  for (let i = 0; i < 10; i += 1) {
-    lists[i].push(stack.pop());
+  activeItems.reverse();
+  for (let i = 0; i < activeItems.length; i += 1) {
+    lists[i].push(activeItems[i]);
   }
+
   fullCards(lists);
   Object.assign(state, {
+    activeItems: [],
     lists,
     stack,
+    move: null,
+  });
+};
+
+export const motion = (state) => {
+  const { stack, lists } = state;
+  const end = stack.length;
+  const begin = end - 10 > 0 ? end - 10 : 0;
+  const sliceArr = stack.slice(begin, end);
+  const activeItems = sliceArr
+    .map((val, key) => ({ ...val, size: lists[sliceArr.length - key - 1].length }));
+  Object.assign(state, {
+    activeItems,
+    stack: stack.slice(0, begin),
     move: null,
   });
 };

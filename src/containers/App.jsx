@@ -5,7 +5,7 @@ import List from '../components/List';
 import Stack from '../components/Stack';
 import UndoRedo from '../components/UndoRedo';
 import {
-  addCards, moveCards, genCardList, justMove,
+  addCards, moveCards, genCardList, justMove, motionCards,
 } from '../actions';
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
 
   render() {
     const {
-      lists, stack, move, moveClickCards, addCardsToList, justMoveCards,
+      lists, stack, activeItems, move, moveClickCards, addCardsToList, justMoveCards,
     } = this.props;
     return (
       <div className="App">
@@ -30,7 +30,7 @@ class App extends Component {
             justMove={justMoveCards}
           />
         ))}
-        <Stack cards={stack} add={addCardsToList} />
+        <Stack cards={stack} activeItems={activeItems} add={addCardsToList} />
         <UndoRedo />
       </div>
     );
@@ -47,7 +47,10 @@ export default connect(
       dispatch(genCardList());
     },
     addCardsToList: () => {
-      dispatch(addCards());
+      dispatch(motionCards());
+      setTimeout(() => {
+        dispatch(addCards());
+      }, 2400);
     },
     justMoveCards: ({
       num, index, cardKey, move,

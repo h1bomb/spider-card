@@ -6,12 +6,14 @@ import {
   MOVE_CARDS,
   JUST_MOVE,
   ADD_CARDS,
+  MOTION_CARDS,
 } from '../actions';
 import {
   genCardList,
   moveCards,
   justMove,
   add,
+  motion,
 } from './cards';
 
 const cards = produce(
@@ -26,6 +28,9 @@ const cards = produce(
       case ADD_CARDS:
         add(draft);
         return draft;
+      case MOTION_CARDS:
+        motion(draft);
+        return draft;
       case JUST_MOVE:
         justMove(action, draft);
         return draft;
@@ -37,6 +42,7 @@ const cards = produce(
     lists: [],
     stack: [],
     move: null,
+    activeItems: [],
   },
 );
 
