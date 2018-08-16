@@ -3,6 +3,7 @@ export const MOVE_CARDS = 'MOVE_CARDS';
 export const ADD_CARDS = 'ADD_CARDS';
 export const JUST_MOVE = 'JUST_MOVE';
 export const MOTION_CARDS = 'MOTION_CARDS';
+export const AUTO_MOVE = 'AUTO_MOVE';
 
 // generate random cards in list and stack
 export const genCardList = () => ({
@@ -40,6 +41,13 @@ export const addCards = () => ({
   type: ADD_CARDS,
 });
 
+// motion cards
 export const motionCards = () => ({
   type: MOTION_CARDS,
+});
+
+// click auto move cards
+export const autoMove = ({ move }) => ({
+  type: AUTO_MOVE,
+  move,
 });

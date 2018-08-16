@@ -124,6 +124,24 @@ export const justMove = (card, state) => {
   return moveCards(card, state);
 };
 
+export const autoMove = (card, state) => {
+  Object.assign(state, { move: card.move });
+  let target;
+  state.lists.forEach((val, key) => {
+    if (val[val.length - 1].num - 1 === card.move.num) {
+      target = {
+        num: val[val.length - 1].num,
+        cardKey: val[val.length - 1].key,
+        index: key,
+      };
+    }
+  });
+  if (!target) {
+    return state;
+  }
+  return moveCards(target, state);
+};
+
 // add cards to every list
 export const add = (state) => {
   const {

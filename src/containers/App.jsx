@@ -5,7 +5,7 @@ import List from '../components/List';
 import Stack from '../components/Stack';
 import UndoRedo from '../components/UndoRedo';
 import {
-  addCards, moveCards, genCardList, justMove, motionCards,
+  addCards, autoMove, genCardList, justMove, motionCards,
 } from '../actions';
 
 class App extends Component {
@@ -41,7 +41,7 @@ export default connect(
   state => state.present,
   dispatch => ({
     moveClickCards: ({ num, index, cardKey }) => {
-      dispatch(moveCards({ num, index, cardKey }));
+      dispatch(autoMove({ move: { num, index, key: cardKey } }));
     },
     genCardsList: () => {
       dispatch(genCardList());

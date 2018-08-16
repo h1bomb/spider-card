@@ -5,6 +5,7 @@ import {
   GEN_CARD_LIST,
   MOVE_CARDS,
   JUST_MOVE,
+  AUTO_MOVE,
   ADD_CARDS,
   MOTION_CARDS,
 } from '../actions';
@@ -12,6 +13,7 @@ import {
   genCardList,
   moveCards,
   justMove,
+  autoMove,
   add,
   motion,
 } from './cards';
@@ -24,6 +26,9 @@ const cards = produce(
         return draft;
       case MOVE_CARDS:
         moveCards(action, draft);
+        return draft;
+      case AUTO_MOVE:
+        autoMove(action, draft);
         return draft;
       case ADD_CARDS:
         add(draft);
