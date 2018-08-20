@@ -128,7 +128,7 @@ export const autoMove = (card, state) => {
   Object.assign(state, { move: card.move });
   let target;
   state.lists.forEach((val, key) => {
-    if (val[val.length - 1].num - 1 === card.move.num) {
+    if (val[val.length - 1] && val[val.length - 1].num - 1 === card.move.num) {
       target = {
         num: val[val.length - 1].num,
         cardKey: val[val.length - 1].key,

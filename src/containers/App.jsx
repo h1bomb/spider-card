@@ -1,41 +1,57 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 import List from '../components/List';
 import Stack from '../components/Stack';
 import UndoRedo from '../components/UndoRedo';
+import New from '../components/New';
 import {
   addCards, autoMove, genCardList, justMove, motionCards,
 } from '../actions';
 
-class App extends Component {
-  componentDidMount() {
-    const { genCardsList } = this.props;
-    genCardsList();
+const isWin = (lists) => {
+  if (lists.length < 1) {
+    return 1;
+  }
+  let ret = 2;
+  lists.forEach((val) => {
+    if (val.length > 0) {
+      ret = 0;
+    }
+  });
+  return ret;
+};
+
+const App = ({
+  lists, stack, activeItems, genCardsList, move, moveClickCards, addCardsToList, justMoveCards,
+}) => {
+  let newGame = null;
+  let redoCom = null;
+  const ret = isWin(lists);
+  if (ret) {
+    newGame = (<New newGame={genCardsList} win={ret === 2} />);
+  } else {
+    redoCom = (<UndoRedo />);
   }
 
-  render() {
-    const {
-      lists, stack, activeItems, move, moveClickCards, addCardsToList, justMoveCards,
-    } = this.props;
-    return (
-      <div className="App">
-        {lists.map((list, key) => (
-          <List
+  return (
+    <div className="App">
+      {newGame}
+      {lists.map((list, key) => (
+        <List
             key={key} // eslint-disable-line
-            index={key}
-            cards={list}
-            curMove={move}
-            move={moveClickCards}
-            justMove={justMoveCards}
-          />
-        ))}
-        <Stack cards={stack} activeItems={activeItems} add={addCardsToList} />
-        <UndoRedo />
-      </div>
-    );
-  }
-}
+          index={key}
+          cards={list}
+          curMove={move}
+          move={moveClickCards}
+          justMove={justMoveCards}
+        />
+      ))}
+      <Stack cards={stack} activeItems={activeItems} add={addCardsToList} />
+      {redoCom}
+    </div>
+  );
+};
 
 export default connect(
   state => state.present,

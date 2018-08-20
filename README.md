@@ -19,17 +19,28 @@ yarn build
 
 ## Feature
 
+### Base Logic
 * Generate cards
 * Move cards
 * Dispatch cards to Lists
 * Full cards clear together
 * Selected Card show other style
-* Use redux rebuild this game
 * Add undo and redo 
-* Add drag and drop 
-* Change to Better UI
-* Use immer
-* Use Now deploy
-* Animation [todo]
+* New game,default desk show
+* Step Number Show[todo]
 * Four type card [todo]
 * Flip card [todo]
+
+### Better Code
+* Use redux rebuild this game
+* Use immer
+* Use Now deploy
+
+### UI / UX
+* Change to Better UI
+* Add drag and drop 
+* Dispatch Cards Animation
+* Win need confetti effect
+* Move Cards Animation[todo]
+* Clear Cards Animation[todo]
+
