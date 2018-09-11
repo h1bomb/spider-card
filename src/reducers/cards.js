@@ -126,6 +126,7 @@ export const justMove = (card, state) => {
 
 export const autoMove = (card, state) => {
   Object.assign(state, { move: card.move });
+  console.log(card.move);
   let target;
   state.lists.forEach((val, key) => {
     if (val[val.length - 1] && val[val.length - 1].num - 1 === card.move.num) {
@@ -139,6 +140,10 @@ export const autoMove = (card, state) => {
   if (!target) {
     return state;
   }
+  const bIndex = getCurIndex(state.lists[card.move.index], card.move.key);
+  const moveArr = state.lists[card.move.index].slice(bIndex);
+  console.log(moveArr, bIndex, bIndex + moveArr.length - 1);
+  console.log(state.lists[target.index].length);
   return moveCards(target, state);
 };
 
